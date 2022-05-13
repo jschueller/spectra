@@ -188,10 +188,10 @@ private:
         }
 
         // Back transformation to get eigenvectors of original matrix
-        Vector m_tmp(size);
+        Vector m_tmp;
         for (Index j = size - 1; j >= 0; j--)
         {
-            m_tmp.noalias() = m_eivec.leftCols(j + 1) * m_matT.col(j).segment(0, j + 1);
+            m_tmp = m_eivec.leftCols(j + 1) * m_matT.col(j).segment(0, j + 1);
             m_eivec.col(j) = m_tmp;
         }
     }
